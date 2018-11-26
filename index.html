@@ -7,7 +7,7 @@
 		<title>reveal.js</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/blood.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -23,27 +23,130 @@
 	</head>
 	<body>
 		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+		    <div class="slides">
+                        <!-- SLIDE ONE -->
+                        <section>
+                            <h1>Levelling Up<br/>
+                                <highlight>Lacinia</highlight>
+                                Using<br/>
+                                <highlight>Spec</highlight>
+                            </h1>
+
+                            <aside class="notes">
+		                <ul>
+                                    <li>Hello</li>
+                                    <li>Thanks</li>
+                                    <li>First ClojureX</li>
+                                </ul>
+	                    </aside>
+                        </section>
+
+                        <!-- SLIDE TWO -->
+                        <section>
+                            <h2>Antony Woods</h2>
+                            <img class="naked headshot" src="img/acron.png"/>
+                            <div>
+                                <div>https://github.com/acron0</div>
+                                <div>@acron</div>
+                            </div>
+
+                            <aside class="notes">
+		                <ul>
+                                    <li>Writing Clojure for 6 years</li>
+                                    <li>Started by sneaking</li>
+                                </ul>
+	                    </aside>
+                        </section>
+
+                        <!-- SLIDE THREE -->
+                        <section>
+                            <img class="naked" src="img/codi.png"/>
+
+                            <aside class="notes">
+		                <ul>
+                                    <li>Now I work for...</li>
+                                    <li>We do Clojure</li>
+                                </ul>
+	                    </aside>
+                        </section>
+
+                        <!-- SLIDE FOUR -->
+                        <section class="top">
+
+                            <div class="is-flex is-columns">
+                                <div class="has-centered-text">
+                                    <h3>Front</h3>
+                                    <div><img class="naked logo" src="img/cljs.png"></div>
+                                    <h4>re-frame</h4>
+                                    <h4>venia</h4>
+                                </div>
+                                <div class="has-centered-text">
+                                    <h3>Back</h3>
+                                    <div><img class="naked logo" src="img/clj.png"></div>
+                                    <h4>compojure</h4>
+                                    <h4>lacinia</h4>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 50px;">
+                                <img class="naked logo" src="img/graphql.png">
+                                <h4>graphql</h4>
+                            </div>
+
+                            <aside class="notes">
+		                <ul>
+                                    <li>GraphQL</li>
+                                    <li>Venia: GraphQL client library</li>
+                                    <li>Lacinia: an implementation of the GraphQL specification</li>
+                                </ul>
+	                    </aside>
+                        </section>
+
+                        <!-- SLIDE FIVE -->
+                        <section data-transition="slide-in none-out">
+                            <img src="img/dashboard.png"/>
+
+                            <aside class="notes">
+		                <ul>
+                                    <li>Now I work for...</li>
+                                    <li>We do Clojure</li>
+                                </ul>
+	                    </aside>
+                        </section>
+
+                        <!-- SLIDE SIX -->
+                        <section data-transition="none">
+                            <img src="img/dashboard_1.png"/>
+
+                            <aside class="notes">
+		                <ul>
+                                    <li>Now I work for...</li>
+                                    <li>We do Clojure</li>
+                                </ul>
+	                    </aside>
+                        </section>
+		    </div>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
 
 		<script>
-			// More info about config & dependencies:
+		 // More info about config & dependencies:
 			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
+		 // - https://github.com/hakimel/reveal.js#dependencies
+		 Reveal.initialize({
+                     history:true,
+                     controls: false,
+                     controlsTutorial: false,
+                     progress: false,
+		     dependencies: [
+			 { src: 'plugin/markdown/marked.js' },
+			 { src: 'plugin/markdown/markdown.js' },
+			 { src: 'plugin/notes/notes.js', async: true },
+			 { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+		     ]
+		 });
 		</script>
 	</body>
 </html>

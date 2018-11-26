@@ -24,6 +24,13 @@ $blood: #a23;
 $coal: #222;
 $codeBackground: #23241f;
 
+$colour1: #9B99FF;
+$colour2: #94D5FF;
+$colour3: #B7FFBD;
+$colour4: #FEFF8C;
+$colour5: #FFBBBA;
+$colour6: #FF8B93;
+
 $backgroundColor: $coal;
 
 // Main text
@@ -34,9 +41,9 @@ $mainColor: #eee;
 $headingFont: Ubuntu, 'sans-serif';
 $headingTextShadow: 2px 2px 2px $coal;
 
-// h1 shadow, borrowed humbly from 
+// h1 shadow, borrowed humbly from
 // (c) Default theme by Hakim El Hattab
-$heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20px 20px rgba(0,0,0,.15);
+//$heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20px 20px rgba(0,0,0,.15);
 
 // Links
 $linkColor: $blood;
@@ -64,7 +71,7 @@ $selectionColor: #fff;
 .reveal h4,
 .reveal h5,
 .reveal h6 {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .reveal p code {
@@ -75,4 +82,59 @@ $selectionColor: #fff;
 
 .reveal small code {
     vertical-align: baseline;
+}
+
+// acron's overrides
+
+.reveal h1 {
+  font-size: 3.4em;
+  color: $colour2;
+}
+
+.reveal highlight {
+  color: $colour6;
+}
+
+.reveal section img.naked {
+  background: transparent;
+  border: 0;
+  box-shadow: unset;
+}
+
+.reveal section img.headshot {
+  width: 200px;
+}
+
+.reveal section img.logo {
+  width: 128px;
+  display: inline-block;
+}
+
+.reveal section img.logo2 {
+  width: 228px;
+}
+
+.has-centered-text {
+  text-align: center;
+}
+
+.is-flex {
+  display: flex;
+}
+
+.is-flex > div {
+  flex: 1
+}
+
+.is-flex > div:not(:last-child) {
+  border-right: 1px solid $mainColor;
+}
+
+.is-columns {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+section.top {
+  top: 0 !important;
 }
