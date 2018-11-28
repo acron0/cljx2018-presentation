@@ -24,7 +24,7 @@
 	<body>
 		<div class="reveal">
 		    <div class="slides">
-                        <!-- SLIDE 1 -->
+                        <!-- SLIDE -->
                         <section>
                             <h1>Levelling Up<br/>
                                 <highlight>Lacinia</highlight>
@@ -43,7 +43,7 @@
 	                    </aside>
                         </section>
 
-                        <!-- SLIDE 2 -->
+                        <!-- SLIDE -->
                         <section>
                             <h2>Antony Woods</h2>
                             <img class="naked headshot" src="img/acron.png"/>
@@ -60,19 +60,19 @@
 	                    </aside>
                         </section>
 
-                        <!-- SLIDE 3 -->
+                        <!-- SLIDE -->
                         <section>
                             <img class="naked" src="img/codi.png"/>
 
                             <aside class="notes">
 		                <ul>
-                                    <li>Now I work for...</li>
+                                    <li>Right now I work for...</li>
                                     <li>the name is not just posturing; We do Clojure. fullstack</li>
                                 </ul>
 	                    </aside>
                         </section>
 
-                        <!-- SLIDE 4 -->
+                        <!-- SLIDE -->
                         <section class="top">
 
                             <div class="is-flex is-columns">
@@ -102,72 +102,13 @@
                                     <li>GraphQL</li>
                                     <li>Venia: GraphQL client library</li>
                                     <li>Lacinia: an implementation of the GraphQL specification</li>
+                                    <li>Our fairly relational data model makes GraphQL a good fit</li>
                                 </ul>
 	                    </aside>
                         </section>
 
-                        <!-- SLIDE 5 -->
-                        <section data-transition="slide-in none-out">
-                            <img src="img/dashboard.png"/>
 
-                            <aside class="notes">
-		                <ul>
-                                    <li>This is a snapshot from the FW site.</li>
-                                    <li>The data model is fairly easy to grok.</li>
-                                </ul>
-	                    </aside>
-                        </section>
-
-                        <!-- SLIDE 6 -->
-                        <section data-transition="none">
-                            <img src="img/dashboard_1.png"/>
-
-                            <aside class="notes">
-		                <ul>
-                                    <li>Users</li>
-                                </ul>
-	                    </aside>
-                        </section>
-
-                        <!-- SLIDE 7 -->
-                        <section data-transition="none">
-                            <img src="img/dashboard_2.png"/>
-
-                            <aside class="notes">
-		                <ul>
-                                    <li>Jobs</li>
-                                </ul>
-	                    </aside>
-                        </section>
-
-                        <!-- SLIDE 8 -->
-                        <section data-transition="none">
-                            <img src="img/dashboard_3.png"/>
-
-                            <aside class="notes">
-		                <ul>
-                                    <li>Companies</li>
-                                </ul>
-	                    </aside>
-                        </section>
-
-                        <!-- SLIDE 9 -->
-                        <section data-transition="none">
-                            <img src="img/dashboard_4.png"/>
-
-                            <aside class="notes">
-		                <ul>
-                                    <li>Applications</li>
-                                    <li>Not hard to imagine the relationships between these pieces</li>
-                                    <li>Companies > Jobs > Applications > Users</li>
-                                    <li>More nuanced than that but the point is ... GraphQL good fit. (Why?)</li>
-                                </ul>
-	                    </aside>
-                        </section>
-
-                        <section></section>
-
-                        <!-- SLIDE 10 -->
+                        <!-- SLIDE -->
                         <section>
                             <h1>Clojure<br/><highlight>Spec</highlight></h1>
 
@@ -179,7 +120,7 @@
 	                    </aside>
                         </section>
 
-                        <!-- SLIDE 11 -->
+                        <!-- SLIDE -->
                         <section class="top">
                             <ul class="big-text">
                                 <li>Validating data</li>
@@ -190,15 +131,15 @@
 
                             <aside class="notes">
 		                <ul>
-                                    <li>Validating data, usually at boundaries. Did the client really send etc</li>
+                                    <li>Validating data, for us mainly at boundaries. Data in and out. Did the client really send etc</li>
                                     <li>It's a mechanism for documenting the flow of data through the application</li>
-                                    <li>We use TestCheck to exercise numerous pathways through the applications; good results</li>
-                                    <li>Confident in ability to change things and not break things</li>
+                                    <li>We make extensive use of TestCheck to exercise numerous pathways through the applications; good results</li>
+                                    <li>Confident in ability to change things and iterate quickly</li>
                                 </ul>
 	                    </aside>
                         </section>
 
-                        <!-- SLIDE 12 -->
+                        <!-- SLIDE -->
                         <section>
                             <img class="is-full-width" src="img/whspec.png"/>
 
@@ -209,45 +150,268 @@
                                     <li>My experience this is bog standard</li>
                                 </ul>
 	                    </aside>
-
                         </section>
 
-                        <!-- SLIDE 13 -->
+                        <!-- SLIDE -->
                         <section>
                             <img class="is-full-width" src="img/whlacinia.png"/>
 
                             <aside class="notes">
 		                <ul>
-                                    <li>Now, compare this with the schema for Lacinia</li>
-                                    <li>See that: Terse and concise </li>
+                                    <li>So as well as validating data in and out using spec, we're also obliged to maintain a schema for Lacinia</li>
+                                    <li>As you can see that: more Terse</li>
                                     <li>GraphQL only has 5 basic scalar types </li>
                                     <li>String, Float, Int, Boolean, ID</li>
-                                    <li>Why do we need this? Lacinia own validation (it doesn't assume we're using spec) and pulling out fields when we only ask for a subset</li>
+                                    <li>Why do we need this? Lacinia own validation (it has no idea we're using spec) and pulling out fields when we only ask for a subset</li>
                                 </ul>
 	                    </aside>
-
                         </section>
 
-                        <!-- SLIDE 14 -->
+                        <!-- SLIDE -->
                         <section>
+                            <h1>?</h1>
                             <aside class="notes">
 		                <ul>
-                                    <li>Now I bet I know what you're thinking now</li>
+                                    <li>The obvious question is why do I need two schema when one is arguably a simpler version of the other?</li>
+                                    <li>Overhead in maintaining not neglible</li>
+                                    <li>Our specs combined are in region 1300 LOC</li>
+                                    <li>Our production Lacinia schema is 1000 LOC</li>
+                                    <li>This is the problem we've been tackling on and off for a while now and there's a working solution</li>
                                 </ul>
 	                    </aside>
                         </section>
 
+                        <!-- SLIDE -->
                         <section class="big-text">
-                            Wouldn't it be awesome if I only had to write a single schema?
+                            "Build a Lacinia schema by just providing the<br/><highlight>queries and mutations</highlight><br/> you want to support"
                             <aside class="notes">
 		                <ul>
-                                    <li>Now I bet I know what you're thinking now</li>
+                                    <li>(Read statement)</li>
+                                    <li>This starts with a more GraphQL oriented approach</li>
+                                    <li>Queries and mutations being roughly analogous to GETs and POSTs</li>
+                                    <li>Ok, so What does that look like?</li>
                                 </ul>
+	                    </aside>
+                        </section>
+
+                        <!-- SLIDE -->
+                        <section>
+	                    <pre><code data-trim data-noescape>
+(s/def ::id int?)
+(s/def ::name string?)
+(s/def ::access #{"candidate" "admin"})
+;;
+(s/def ::user-query (s/keys :req-un [::id]))
+(s/def ::user (s/keys :req-un [::id]
+                      :opt-un [::name
+                               ::access]))
+	                    </code></pre>
+                            <aside class="notes">
+		                <ul>
+                                    <li>Let's start with a spec, albeit a little contrived - something that resembles a user</li>
+                                    <li>Spec for a query - just requires an id</li>
+                                </ul>
+	                    </aside>
+                        </section>
+
+                        <!-- SLIDE -->
+                        <section >
+	                    <pre><code data-trim data-noescape>
+(-> (leona/create)
+    (leona/attach-query ::user-query ::user user-resolver)
+    (leona/compile))
+
+	                    </code></pre>
+
+                            <pre class="fragment"><code data-trim data-noescape>
+{:objects
+ {:user
+  {:fields
+   {:id {:type (non-null Int)},
+    :name {:type String},
+    :access {:type :access}}}},
+ :enums
+ {:access {:values ["admin" "candidate"]}},
+ :queries
+ {:user
+  {:type :user,
+   :args {:id {:type (non-null Int)}},
+   :resolve user-resolver}}}
+	                    </code></pre>
+                            <aside class="notes">
+		                <ul>
+                                    <li>This is how we introduce the query</li>
+                                    <li>(explain the parts)</li>
+                                    <li>and this is the kind of result we can expect</li>
+                                    <li>resolver has been wrapped</li>
+                                    <li>we use spec-tools from metosin to walk the spec</li>
+                                    <li>in some cases there's inference about what types can be used</li>
+                                </ul>
+	                    </aside>
+                        </section>
+
+                        <!-- SLIDE -->
+                        <section>
+                            References
+	                    <pre><code data-trim data-noescape>
+(s/def ::application (s/keys :req-un [::id]))
+(s/def ::applications (s/coll-of ::application))
+;;
+(s/def ::user (s/keys :req-un [::id]
+                      :opt-un [::name
+                               ::access
+                               <mark>::applications</mark>]))
+
+	                    </code></pre>
+                            <pre><code data-trim data-noescape>
+{:objects
+ {<mark>:application {:fields {:id {:type (non-null Int)}}},</mark>
+  :user
+  {:fields
+   {:id {:type (non-null Int)},
+    :name {:type String},
+    :access {:type :access},
+    <mark>:applications {:type (list :application)}</mark>}}},
+ :enums {:access {:values ["admin" "candidate"]}},
+ :queries
+ {:user
+  {:type :user,
+   :args {:id {:type (non-null Int)}},
+   :resolve user-resolver}}}
+	                    </code></pre>
+
+                            <aside class="notes">
+		                <ul>
+                                    <li>Applications</li>
+                                    <li>After adding a reference, if we were so inclined we could also add a ...</li>
+                                </ul>
+	                    </aside>
+                        </section>
+
+                        <!-- SLIDE -->
+                        <section >
+                            Field Resolvers
+	                    <pre><code data-trim data-noescape>
+(-> (leona/create)
+    (leona/attach-query ::user-query ::user user-resolver)
+    (leona/attach-field-resolver ::applications
+                                 applications-resolver)
+    (leona/compile)
+
+	                    </code></pre>
+
+                            <pre><code data-trim data-noescape>
+:user
+  {:fields
+   {:id {:type (non-null Int)},
+    :name {:type String},
+    :access {:type :access},
+    :applications {:type (list :application)
+                   <mark>:resolve applications-resolver</mark>}}}
+
+	                    </code></pre>
+
+                            <aside class="notes">
+		                <ul>
+                                    <li>(Why are these useful?)</li>
+                                </ul>
+	                    </aside>
+                        </section>
+
+                        <!-- SLIDE -->
+                        <section >
+                            Mutations
+	                    <pre><code data-trim data-noescape>
+(-> (leona/create)
+    (leona/attach-mutation ::user-mutation ::user user-mutator)
+    (leona/compile)
+
+	                    </code></pre>
+
+                            <aside class="notes">
+		                <ul>
+                                    <li>??</li>
+                                </ul>
+	                    </aside>
+                        </section>
+
+                        <!-- SLIDE -->
+                        <section >
+                            Middleware
+	                    <pre><code data-trim data-noescape>
+(defn field-auth-fn
+ [handler ctx query value]
+ ;; do logic
+ (handler))
+
+(def compiled
+  (-> (leona/create)
+      (leona/attach-query ::user-query ::user user-resolver)
+      (leona/attach-middleware field-auth-fn) ;; <--
+      (leona/compile))
+
+(leona/execute compiled "....")
+
+
+                                <aside class="notes">
+		                    <ul>
+                                        <li>Acts like ring middleware where you're passed a handler </li>
+                                        <li>In this example scenario we might check the user is authorised to view the fields they've requested and if not just abort the process and return an error</li>
+                                    </ul>
+	                        </aside></code></pre>
+                        </section>
+
+                        <!-- SLIDE -->
+                        <section>
+                            Overrides
+	                    <pre><code data-trim data-noescape>
+(s/def ::weird (st/spec weird? {:type 'Boolean}))
+
+(s/def ::foo (st/spec weird? {:description "This is a foo"}))
+
+	                    </code></pre>
+
+                            <aside class="notes">
+		                <ul>
+                                    <li>If things get really weird and a spec can't be inferred - like a predicate - then drop back to spec-tools own 'spec' fn</li>
+                                    <li>Although it's worth pointing out that so far this excape hatch hasn't been required in the Functional Works code base</li>
+                                </ul>
+	                    </aside>
+                        </section>
+
+                        <!-- SLIDE -->
+                        <section class="top">
+                            <h3>;; TODO</h3><br/>
+	                    <ol>
+                                <li>Interfaces and Unions</li>
+                                <li class="fragment">Input Objects</li>
+                                <li class="fragment">Custom Scalars</li>
+                            </ol>
+
+                            <aside class="notes">
+		                <ul>
+                                    <li>More nuanced parts of the GraphQL toolset but allow us to write better queries.</li>
+                                    <li>Currently input specs are expanded and each arg is included. Input Objects were included to reduce repetition.</li>
+                                    <li>Date parse/serialize</li>
+                                </ul>
+	                    </aside>
+                        </section>
+
+                        <!-- SLIDE -->
+                        <section>
+                            <p>https://github.com/acron0/leona</p>
+                            <hr/>
+                            <p>Questions?</p>
+
+                            <aside class="notes">
+
 	                    </aside>
                         </section>
 
 		    </div>
 		</div>
+
+
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
