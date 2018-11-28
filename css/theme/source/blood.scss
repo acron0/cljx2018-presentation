@@ -118,6 +118,10 @@ $selectionColor: #fff;
   text-align: center;
 }
 
+.is-full-width {
+  width: 100%;
+}
+
 .is-flex {
   display: flex;
 }
@@ -137,4 +141,8 @@ $selectionColor: #fff;
 
 section.top {
   top: 0 !important;
+}
+
+.big-text {
+  font-size: 200% !important;
 }

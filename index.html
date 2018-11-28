@@ -24,7 +24,7 @@
 	<body>
 		<div class="reveal">
 		    <div class="slides">
-                        <!-- SLIDE ONE -->
+                        <!-- SLIDE 1 -->
                         <section>
                             <h1>Levelling Up<br/>
                                 <highlight>Lacinia</highlight>
@@ -34,6 +34,7 @@
 
                             <aside class="notes">
 		                <ul>
+                                    <li>(Turn off alarms)</li>
                                     <li>Hello</li>
                                     <li>Thanks</li>
                                     <li>First ClojureX</li>
@@ -41,7 +42,7 @@
 	                    </aside>
                         </section>
 
-                        <!-- SLIDE TWO -->
+                        <!-- SLIDE 2 -->
                         <section>
                             <h2>Antony Woods</h2>
                             <img class="naked headshot" src="img/acron.png"/>
@@ -58,19 +59,19 @@
 	                    </aside>
                         </section>
 
-                        <!-- SLIDE THREE -->
+                        <!-- SLIDE 3 -->
                         <section>
                             <img class="naked" src="img/codi.png"/>
 
                             <aside class="notes">
 		                <ul>
                                     <li>Now I work for...</li>
-                                    <li>We do Clojure</li>
+                                    <li>the name is not just posturing; We do Clojure. fullstack</li>
                                 </ul>
 	                    </aside>
                         </section>
 
-                        <!-- SLIDE FOUR -->
+                        <!-- SLIDE 4 -->
                         <section class="top">
 
                             <div class="is-flex is-columns">
@@ -95,6 +96,8 @@
 
                             <aside class="notes">
 		                <ul>
+                                    <li>Describe front; JS?</li>
+                                    <li>Describe back; cookie cutter</li>
                                     <li>GraphQL</li>
                                     <li>Venia: GraphQL client library</li>
                                     <li>Lacinia: an implementation of the GraphQL specification</li>
@@ -102,29 +105,139 @@
 	                    </aside>
                         </section>
 
-                        <!-- SLIDE FIVE -->
+                        <!-- SLIDE 5 -->
                         <section data-transition="slide-in none-out">
                             <img src="img/dashboard.png"/>
 
                             <aside class="notes">
 		                <ul>
-                                    <li>Now I work for...</li>
-                                    <li>We do Clojure</li>
+                                    <li>This is a snapshot from the FW site.</li>
+                                    <li>The data model is fairly easy to grok.</li>
                                 </ul>
 	                    </aside>
                         </section>
 
-                        <!-- SLIDE SIX -->
+                        <!-- SLIDE 6 -->
                         <section data-transition="none">
                             <img src="img/dashboard_1.png"/>
 
                             <aside class="notes">
 		                <ul>
-                                    <li>Now I work for...</li>
-                                    <li>We do Clojure</li>
+                                    <li>Users</li>
                                 </ul>
 	                    </aside>
                         </section>
+
+                        <!-- SLIDE 7 -->
+                        <section data-transition="none">
+                            <img src="img/dashboard_2.png"/>
+
+                            <aside class="notes">
+		                <ul>
+                                    <li>Jobs</li>
+                                </ul>
+	                    </aside>
+                        </section>
+
+                        <!-- SLIDE 8 -->
+                        <section data-transition="none">
+                            <img src="img/dashboard_3.png"/>
+
+                            <aside class="notes">
+		                <ul>
+                                    <li>Companies</li>
+                                </ul>
+	                    </aside>
+                        </section>
+
+                        <!-- SLIDE 9 -->
+                        <section data-transition="none">
+                            <img src="img/dashboard_4.png"/>
+
+                            <aside class="notes">
+		                <ul>
+                                    <li>Applications</li>
+                                    <li>Not hard to imagine the relationships between these pieces</li>
+                                    <li>Companies > Jobs > Applications > Users</li>
+                                    <li>More nuanced than that but the point is ... GraphQL good fit. (Why?)</li>
+                                </ul>
+	                    </aside>
+                        </section>
+
+                        <section></section>
+
+                        <!-- SLIDE 10 -->
+                        <section>
+                            <h1>Clojure<br/><highlight>Spec</highlight></h1>
+
+                            <aside class="notes">
+		                <ul>
+                                    <li>Another tool we use alot</li>
+                                    <li>Few reasons</li>
+                                </ul>
+	                    </aside>
+                        </section>
+
+                        <!-- SLIDE 11 -->
+                        <section class="top">
+                            <ul class="big-text">
+                                <li>Validating data</li>
+                                <li class="fragment">Documentation</li>
+                                <li class="fragment">Automated testing</li>
+                                <li class="fragment">Confidence</li>
+                            </ul>
+
+                            <aside class="notes">
+		                <ul>
+                                    <li>Validating data, usually at boundaries. Did the client really send etc</li>
+                                    <li>It's a mechanism for documenting the flow of data through the application</li>
+                                    <li>We use TestCheck to exercise numerous pathways through the applications; good results</li>
+                                    <li>Confident in ability to change things and not break things</li>
+                                </ul>
+	                    </aside>
+                        </section>
+
+                        <!-- SLIDE 12 -->
+                        <section>
+                            <img class="is-full-width" src="img/whspec.png"/>
+
+                            <aside class="notes">
+		                <ul>
+                                    <li>Here is a real spec</li>
+                                    <li>Application; massaged slightly</li>
+                                    <li>My experience this is bog standard</li>
+                                </ul>
+	                    </aside>
+
+                        </section>
+
+                        <!-- SLIDE 13 -->
+                        <section>
+                            <img class="is-full-width" src="img/whlacinia.png"/>
+
+                            <aside class="notes">
+		                <ul>
+                                    <li>Now, compare this with the schema for Lacinia</li>
+                                    <li>See that: Terse and concise </li>
+                                    <li>GraphQL only has 5 basic scalar types </li>
+                                    <li>String, Float, Int, Boolean, ID</li>
+                                    <li>Why do we need this? Lacinia own validation (it doesn't assume we're using spec) and pulling out fields when we only ask for a subset</li>
+                                </ul>
+	                    </aside>
+
+                        </section>
+
+
+                        <section class="big-text">
+
+                            <aside class="notes">
+		                <ul>
+                                    <li>LEONA</li>
+                                </ul>
+	                    </aside>
+
+                        </section>
+
 		    </div>
 		</div>
 
@@ -133,20 +246,20 @@
 
 		<script>
 		 // More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-		 // - https://github.com/hakimel/reveal.js#dependencies
-		 Reveal.initialize({
-                     history:true,
-                     controls: false,
-                     controlsTutorial: false,
-                     progress: false,
-		     dependencies: [
-			 { src: 'plugin/markdown/marked.js' },
-			 { src: 'plugin/markdown/markdown.js' },
-			 { src: 'plugin/notes/notes.js', async: true },
-			 { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-		     ]
-		 });
+                 // - https://github.com/hakimel/reveal.js#configuration
+                 // - https://github.com/hakimel/reveal.js#dependencies
+		        Reveal.initialize({
+                            history:true,
+                            controls: false,
+                            controlsTutorial: false,
+                            progress: false,
+		            dependencies: [
+			        { src: 'plugin/markdown/marked.js' },
+			        { src: 'plugin/markdown/markdown.js' },
+			        { src: 'plugin/notes/notes.js', async: true },
+			        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+		            ]
+		        });
 		</script>
 	</body>
 </html>
