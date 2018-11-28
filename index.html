@@ -73,7 +73,7 @@
                         </section>
 
                         <!-- SLIDE -->
-                        <section class="top">
+                        <section>
 
                             <div class="is-flex is-columns">
                                 <div class="has-centered-text">
@@ -97,9 +97,9 @@
 
                             <aside class="notes">
 		                <ul>
-                                    <li>Describe front; JS?</li>
-                                    <li>Describe back; cookie cutter</li>
-                                    <li>GraphQL</li>
+                                    <li>Fairly standard offering</li>
+                                    <li>(Describe)</li>
+                                    <li>GraphQL is our tool</li>
                                     <li>Venia: GraphQL client library</li>
                                     <li>Lacinia: an implementation of the GraphQL specification</li>
                                     <li>Our fairly relational data model makes GraphQL a good fit</li>
@@ -121,18 +121,18 @@
                         </section>
 
                         <!-- SLIDE -->
-                        <section class="top">
-                            <ul class="big-text">
+                        <section>
+                            <ul>
                                 <li>Validating data</li>
                                 <li class="fragment">Documentation</li>
-                                <li class="fragment">Automated testing</li>
+                                <li class="fragment">Property-based testing</li>
                                 <li class="fragment">Confidence</li>
                             </ul>
 
                             <aside class="notes">
 		                <ul>
-                                    <li>Validating data, for us mainly at boundaries. Data in and out. Did the client really send etc</li>
-                                    <li>It's a mechanism for documenting the flow of data through the application</li>
+                                    <li>It's great at Validating data. No surprise here. for us mainly at boundaries. Data in and out. Did the client really send etc</li>
+                                    <li>It's a useful mechanism for documenting the flow of data through the application. We add specs to functions where possible, and this helps with...</li>
                                     <li>We make extensive use of TestCheck to exercise numerous pathways through the applications; good results</li>
                                     <li>Confident in ability to change things and iterate quickly</li>
                                 </ul>
@@ -145,7 +145,7 @@
 
                             <aside class="notes">
 		                <ul>
-                                    <li>Here is a real spec</li>
+                                    <li>Here is a "real" spec</li>
                                     <li>Application; massaged slightly</li>
                                     <li>My experience this is bog standard</li>
                                 </ul>
@@ -175,20 +175,27 @@
                                     <li>The obvious question is why do I need two schema when one is arguably a simpler version of the other?</li>
                                     <li>Overhead in maintaining not neglible</li>
                                     <li>Our specs combined are in region 1300 LOC</li>
-                                    <li>Our production Lacinia schema is 1000 LOC</li>
-                                    <li>This is the problem we've been tackling on and off for a while now and there's a working solution</li>
+                                    <li>Our Lacinia schema is 1000 LOC</li>
+                                    <li>This is exactly the problem we've been tackling on and off for a while now</li>
+                                    <li>In my mind, the solution started to form in the following way:</li>
                                 </ul>
 	                    </aside>
                         </section>
 
                         <!-- SLIDE -->
-                        <section class="big-text">
-                            "Build a Lacinia schema by just providing the<br/><highlight>queries and mutations</highlight><br/> you want to support"
+                        <section>
+                            <ol>
+                                <li>Interfere with <highlight>Spec</highlight> as little as possible</li>
+                                <li class="fragment">Reinvent as little as possible</li>
+                                <li class="fragment">Orient toward GraphQL/<highlight>Lacinia</highlight></li>
+                            </ol>
                             <aside class="notes">
 		                <ul>
-                                    <li>(Read statement)</li>
-                                    <li>This starts with a more GraphQL oriented approach</li>
-                                    <li>Queries and mutations being roughly analogous to GETs and POSTs</li>
+
+
+                                    <li>Spec is a cornerstone of Clojure development these days. Introducing any new wacky macros or wrapper fns will likely prevent adoption</li>
+                                    <li>I am pretty lazy so I want to use existing tools to help as much as possible</li>
+                                    <li>Understand what GraphQL and Lacinia are trying to do, how they do it, and build on top</li>
                                     <li>Ok, so What does that look like?</li>
                                 </ul>
 	                    </aside>
@@ -241,8 +248,20 @@
                             <aside class="notes">
 		                <ul>
                                     <li>This is how we introduce the query</li>
+                                        <ul>
+                                            <li>create empty data structure</li>
+                                            <li>add the input spec</li>
+                                            <li>add the output spec</li>
+                                            <li>add the resolve fn</li>
+                                        </ul>
                                     <li>(explain the parts)</li>
-                                    <li>and this is the kind of result we can expect</li>
+                                    <li>and this is the kind of result we can expect
+                                        <ul>
+                                            <li>user object has been placed into objects</li>
+                                            <li>an access enum has been placed into enums</li>
+                                            <li>and a user query has been placed into queries</li>
+                                        </ul>
+                                    </li>
                                     <li>resolver has been wrapped</li>
                                     <li>we use spec-tools from metosin to walk the spec</li>
                                     <li>in some cases there's inference about what types can be used</li>
@@ -313,7 +332,7 @@
 
                             <aside class="notes">
 		                <ul>
-                                    <li>(Why are these useful?)</li>
+                                    <li>Field resolvers allow us to indicate that certain fields within an object should be fetched separately. This is useful for numerous reasons, but importantly it means that if that field is ommnitted from a query then no work is wasted fetching related data, only to be discarded later.</li>
                                 </ul>
 	                    </aside>
                         </section>
@@ -380,7 +399,7 @@
                         </section>
 
                         <!-- SLIDE -->
-                        <section class="top">
+                        <section>
                             <h3>;; TODO</h3><br/>
 	                    <ol>
                                 <li>Interfaces and Unions</li>
