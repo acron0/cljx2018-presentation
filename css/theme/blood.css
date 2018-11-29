@@ -302,6 +302,9 @@ body {
 .reveal highlight {
   color: #FF8B93; }
 
+.reveal highlight.yellow {
+  color: #FEFF8C; }
+
 .reveal section img.naked {
   background: transparent;
   border: 0;
