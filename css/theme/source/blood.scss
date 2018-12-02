@@ -155,3 +155,28 @@ mark {
   background-color: #6862c2;
   color: white;
 }
+
+header {
+  position: absolute;
+  bottom: 5px;
+  right: 3px;
+  z-index: 500;
+  font-size: 50% !important;
+}
+
+.header1 header:after {
+  content: "@acron";
+  color: #888;
+}
+
+/* .header1 header:before { */
+/*   content:""; */
+/*   display: block; */
+/*   width: 24px;*/
+/*   height: 26px;*/
+/*   background-size: 24px 26px;*/
+/*   background-image: url(../../img/codi.png);*/
+/*   position: absolute;*/
+/*   right: 0px;*/
+/*   bottom: 18px;*/
+/* }*/

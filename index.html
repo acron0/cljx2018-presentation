@@ -22,7 +22,8 @@
 		</script>
 	</head>
 	<body>
-		<div class="reveal">
+	    <div class="reveal">
+                <header></header>
 		    <div class="slides">
                         <!-- SLIDE -->
                         <section>
@@ -65,18 +66,19 @@
                         <!-- SLIDE -->
                         <section>
                             <img class="naked" src="img/codi.png"/>
+                            <h4>Functional Works</h4>
 
                             <aside class="notes">
 		                <ul>
                                     <li>Right now I work for...</li>
                                     <li>Relevant</li>
-                                    <li>the name is not just posturing; We do Clojure. fullstack</li>
+                                    <li>We do Clojure. fullstack</li>
                                 </ul>
 	                    </aside>
                         </section>
 
                         <!-- SLIDE -->
-                        <section>
+                        <section data-state="header1">
 
                             <div class="is-flex is-columns">
                                 <div class="has-centered-text">
@@ -112,7 +114,7 @@
 
 
                         <!-- SLIDE -->
-                        <section>
+                        <section data-state="header1">
                             <h1>Clojure<br/><highlight>Spec</highlight></h1>
 
                             <aside class="notes">
@@ -124,7 +126,7 @@
                         </section>
 
                         <!-- SLIDE -->
-                        <section>
+                        <section data-state="header1">
                             <ul>
                                 <li>Validating data</li>
                                 <li class="fragment">Documentation</li>
@@ -143,7 +145,7 @@
                         </section>
 
                         <!-- SLIDE -->
-                        <section>
+                        <section data-state="header1">
                             <img class="is-full-width" src="img/whspec.png"/>
 
                             <aside class="notes">
@@ -157,7 +159,7 @@
                         </section>
 
                         <!-- SLIDE -->
-                        <section>
+                        <section data-state="header1">
                             <img class="is-full-width" src="img/whlacinia.png"/>
 
                             <aside class="notes">
@@ -172,7 +174,7 @@
                         </section>
 
                         <!-- SLIDE -->
-                        <section>
+                        <section data-state="header1">
                             <h1>?</h1>
                             <aside class="notes">
 		                <ul>
@@ -186,7 +188,7 @@
                         </section>
 
                         <!-- SLIDE -->
-                        <section class="big-text">
+                        <section class="big-text" data-state="header1">
                             (<highlight class="yellow">leona</highlight>)
                             <aside class="notes">
 		                <ul>
@@ -198,7 +200,7 @@
                         </section>
 
                         <!-- SLIDE -->
-                        <section>
+                        <section data-state="header1">
 	                    <pre><code data-trim data-noescape>
 (s/def ::id int?)
 (s/def ::name string?)
@@ -219,7 +221,7 @@
                         </section>
 
                         <!-- SLIDE -->
-                        <section >
+                        <section data-state="header1">
                             Queries
 	                    <pre><code data-trim data-noescape>
 (-> (leona/create)
@@ -267,7 +269,7 @@
                         </section>
 
                         <!-- SLIDE -->
-                        <section >
+                        <section data-state="header1">
                             Mutations
 	                    <pre><code data-trim data-noescape>
 (-> (leona/create)
@@ -304,7 +306,7 @@
                         </section>
 
                         <!-- SLIDE -->
-                        <section>
+                        <section data-state="header1">
                             References
 	                    <pre><code data-trim data-noescape>
 (s/def ::application (s/keys :req-un [::id]))
@@ -342,7 +344,7 @@
                         </section>
 
                         <!-- SLIDE -->
-                        <section >
+                        <section data-state="header1">
                             Field Resolvers
 	                    <pre><code data-trim data-noescape>
 (-> (leona/create)
@@ -372,7 +374,7 @@
                         </section>
 
                         <!-- SLIDE -->
-                        <section >
+                        <section data-state="header1">
                             Middleware
 	                    <pre><code data-trim data-noescape>
 (defn field-auth-fn
@@ -398,7 +400,7 @@
                         </section>
 
                         <!-- SLIDE -->
-                        <section>
+                        <section data-state="header1">
                             Overrides
 	                    <pre><code data-trim data-noescape>
 (s/def ::weird (st/spec weird? {:type 'Boolean}))
@@ -416,7 +418,7 @@
                         </section>
 
                         <!-- SLIDE -->
-                        <section>
+                        <section data-state="header1">
                             <h3>;; TODO</h3><br/>
 	                    <ol>
                                 <li>Interfaces and Unions</li>
@@ -438,8 +440,8 @@
 
 
                         <!-- SLIDE -->
-                        <section>
-                            <p>https://github.com/acron0/leona</p>
+                        <section data-state="header1">
+                            <p>https://github.com/works-hub/leona</p>
                             <hr/>
                             <p>Questions?</p>
 
